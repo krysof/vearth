@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>虚拟地球 · Virtual Earth</title>
+<link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body>
+  <!-- Loading overlay -->
+  <div id="loader">
+    <div class="spinner"></div>
+    <p>正在加载地球…</p>
+  </div>
+
+  <!-- Three.js canvas mounts here via JS -->
+
+  <!-- Top bar -->
+  <header class="topbar glass">
+    <h1 class="logo">🌍 虚拟地球</h1>
+    <span class="subtitle">Interactive Virtual Earth · WebGL</span>
+  </header>
+
+  <!-- Control panel -->
+  <div id="controls" class="glass">
+    <button id="btn-rotate" title="自动旋转" class="active">🔄 自动旋转</button>
+    <button id="btn-reset" title="重置视角">⌂ 复位视角</button>
+    <label class="speed-row">
+      转速
+      <input type="range" id="speed" min="0.1" max="3" step="0.1" value="1" />
+    </label>
+    <select id="flyto">
+      <option value="">✈️ 飞往城市…</option>
+      <option value="Beijing">北京</option>
+      <option value="Tokyo">东京</option>
+      <option value="NewYork">纽约</option>
+      <option value="London">伦敦</option>
+      <option value="Paris">巴黎</option>
+      <option value="Sydney">悉尼</option>
+      <option value="Rio">里约热内卢</option>
+      <option value="CapeTown">开普敦</option>
+    </select>
+  </div>
+
+  <!-- Info card -->
+  <aside id="info" class="glass hidden">
+    <button id="btn-close-info">×</button>
+    <h2 id="info-name"></h2>
+    <p id="info-coords"></p>
+    <p id="info-desc"></p>
+  </aside>
+
+  <!-- Hover tooltip -->
+  <div id="tooltip" class="hidden"></div>
+
+  <!-- Hint bottom-left -->
+  <footer class="hint">
+    拖拽旋转 · 滚轮缩放 · 点击城市标记查看信息
+  </footer>
+
+  <!-- Vendor libs (local, no build step) -->
+  <script src="assets/js/vendor/three.min.js"></script>
+  <script src="assets/js/vendor/OrbitControls.js"></script>
+  <!-- App -->
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
